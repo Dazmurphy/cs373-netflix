@@ -7,6 +7,16 @@
 # ---------------------------
 
 #--------
+#imports
+#--------
+
+import requests, os, pickle
+
+customer_average_rating = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle'
+r = requests.get(customer_average_rating).content
+pickle_dic = pickle.load(r)
+
+#--------
 #netflix_eval
 #--------
 
@@ -35,3 +45,14 @@ def netflix_solve(r, w) :
             i = netflix_read(s)
             v = netflix_eval(i)
             netflix_print(w, v)
+
+
+#when movie id is read in
+#need to check it's data
+#i.e. year it was made
+#average rating for it
+#when user id is read in
+#need to check it's data
+#user's average rating overall
+#user's average for a decade
+#user's average rating for a year
