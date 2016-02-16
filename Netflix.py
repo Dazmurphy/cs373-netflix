@@ -10,16 +10,16 @@
 #netflix_eval
 #--------
 
-def netflix_eval() :
+def netflix_eval(i) :
+    return i
 
-
-def netflix_read() :
-
+def netflix_read(s) :
+    return int(s)
 
 def netflix_print(w, v) :
     w.write(str(v) + "\n")
 
-def netflix_rmse() :
+#def netflix_rmse() :
 
 
 def netflix_solve(r, w) :
@@ -29,13 +29,9 @@ def netflix_solve(r, w) :
     """
 
     for s in r :
-        #if s is movie
-        #just print it
-        #if s is customer id
-        #perform eval on it
         if ":" in s :
+            w.write(s)
+        else :
+            i = netflix_read(s)
+            v = netflix_eval(i)
             netflix_print(w, v)
-
-        i = netflix_read(s)
-        v = netflix_eval(i)
-        netflix_print(w, v)
