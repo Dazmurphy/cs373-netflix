@@ -73,9 +73,9 @@ def netflix_solve(r, w) :
         else :
             customer_id = netflix_read(s)
             v = netflix_eval(customer_id)
-            #dict[customer_id] = v
+            prediction_dict[movie_id] = {customer_id : v}
+            w.write(str(prediction_dict))
             netflix_print(w, v)
-            w.write(str(len(true_ratings)))
 
     #w.write(netflix_rmse(prediction_dict, actual_ratings_dict))
 
