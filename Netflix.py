@@ -40,7 +40,7 @@ movie_id = 0
 #--------
 
 def netflix_eval(i) :
-    return 1
+    return customer_av_unpickled[i]
 
 def netflix_read(s) :
     return int(s)
@@ -71,11 +71,11 @@ def netflix_solve(r, w) :
 
             movie_id = int(s)
         else :
-            #customer_id = netflix_read(s)
+            customer_id = netflix_read(s)
             v = netflix_eval(customer_id)
             #dict[customer_id] = v
             netflix_print(w, v)
-            w.write(str(len(customer_av_unpickled)))
+            w.write(str(len(true_ratings)))
 
     #w.write(netflix_rmse(prediction_dict, actual_ratings_dict))
 
