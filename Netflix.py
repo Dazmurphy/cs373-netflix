@@ -16,26 +16,22 @@ from math      import sqrt
 
 from numpy     import mean, sqrt, square, subtract
 
-#customer_average_rating = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle'
-#movie_average_rating = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_movie_avgs.pickle'
-#actual_ratings = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_true_ratings.pickle'
 
-#r = requests.get(movie_average_rating).content
-#pickle_dic = pickle.loads(r)
+true_ratings_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_true_ratings.pickle'
 
-#s = requests.get(actual_ratings).content
-#real_ratings = pickle.loads(s)
+f = requests.get(true_ratings_url).content
+true_ratings = pickle.loads(f)
 
-f = open('kh549-customer_average.pickle', 'rb')
-customer_av_unpickled = pickle.load(f)
+customer_av_unpickled_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle'
 
-g = open('ad35988-movie_stddev_average.pickle', 'rb')
-movie_std_avg = pickle.load(g)
+g = requests.get(customer_av_unpickled_url).content
+customer_av_unpickled = pickle.loads(g)
 
-h = open('kdg445_true_ratings.pickle', 'rb')
-true_ratings = pickle.load(h)
+movie_std_avg_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/ad35988-movie_stddev_average.pickle'
 
-#training_data_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
+h = requests.get(movie_std_avg_url).content
+movie_std_avg = pickle.loads(h)
+
 
 #--------
 #netflix_eval
