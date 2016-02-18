@@ -37,12 +37,6 @@ true_ratings = pickle.load(h)
 
 #training_data_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
 
-prediction_list = []
-actual_ratings_list = []
-
-customer_id = 0
-movie_id = 0
-
 #--------
 #netflix_eval
 #--------
@@ -68,6 +62,11 @@ def netflix_solve(r, w) :
     def netflix_rmse(a, p) :
         return sqrt(mean(square(subtract(a, p))))
 
+    prediction_list = []
+    actual_ratings_list = []
+
+    customer_id = 0
+    movie_id = 0
 
     i = 0
 
@@ -90,11 +89,15 @@ def netflix_solve(r, w) :
             prediction_list.append(predicted_rating)
             actual_ratings_list.append(true_ratings[movie_id][customer_id])
 
-            netflix_print(w, predicted_rating)
+            predicted_rating_truncated = '{:.1f}'.format(predicted_rating)
 
-    rmse = netflix_rmse(prediction_list, actual_ratings_list) 
+            netflix_print(w, predicted_rating_truncated)
+
+    rmse = netflix_rmse(prediction_list, actual_ratings_list)
 
     rmse ='{:.2f}'.format(rmse)
 
     w.write("RMSE: " + str(rmse))
+
+
 

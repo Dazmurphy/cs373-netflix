@@ -1,0 +1,13 @@
+Declan-Duffys-MacBook-Pro:cs373-netflix declanduffy$ coverage run --branch testnetflix.py
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 0.004s
+
+OK
+Declan-Duffys-MacBook-Pro:cs373-netflix declanduffy$ coverage report -m
+Name             Stmts   Miss Branch BrPart  Cover   Missing
+------------------------------------------------------------
+Netflix.py          39      0      4      0   100%   
+testnetflix.py      57      0      2      1    98%   104->-9
+------------------------------------------------------------
+TOTAL               96      0      6      1    99% 
