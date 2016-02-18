@@ -12,6 +12,10 @@
 
 import requests, os, pickle
 
+from math      import sqrt
+
+from numpy     import mean, sqrt, square, subtract
+
 #customer_average_rating = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle'
 #movie_average_rating = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_movie_avgs.pickle'
 #actual_ratings = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_true_ratings.pickle'
@@ -22,15 +26,17 @@ import requests, os, pickle
 #s = requests.get(actual_ratings).content
 #real_ratings = pickle.loads(s)
 
-f = open('C:/Users/Darragh/Desktop/Dropbox/Austin-2016/SE/netflix-caches/kh549-customer_average.pickle', 'rb')
+f = open('kh549-customer_average.pickle', 'rb')
 customer_av_unpickled = pickle.load(f)
 
-g = open('C:/Users/Darragh/Desktop/Dropbox/Austin-2016/SE/netflix-caches/kdg445_true_ratings.pickle', 'rb')
+g = open('kdg445_true_ratings.pickle', 'rb')
 true_ratings = pickle.load(g)
 #training_data_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
 
-prediction_dict = {}
-actual_ratings_dict = {}
+
+prediction_list = []
+actual_ratings_list = []
+
 
 customer_id = 0
 movie_id = 0
@@ -45,14 +51,14 @@ def netflix_eval(i) :
 def netflix_read(s) :
     return int(s)
 
-#def netflix_get_training_data() :
-
 
 def netflix_print(w, v) :
     w.write(str(v) + "\n")
 
 def netflix_rmse(a, p) :
-    return sqrt(mean(square(subtract(a, p))))
+    v = sum(map(lambda x, y : (x - y) ** 2, a, p))
+
+    return sqrt(v / len(a))
 
 
 def netflix_solve(r, w) :
@@ -61,7 +67,10 @@ def netflix_solve(r, w) :
     w a writer
     """
 
+    i = 0
+
     for s in r :
+
         if ":" in s :
             w.write(s)
 
@@ -70,16 +79,19 @@ def netflix_solve(r, w) :
             s = s.strip(":")
 
             movie_id = int(s)
+
         else :
             customer_id = netflix_read(s)
-            v = netflix_eval(customer_id)
-            prediction_dict[movie_id] = {customer_id : v}
-            actual_ratings_dict[movie_id] = {customer_id : true_ratings[movie_id][customer_id]}
-            w.write(str(prediction_dict))
-            w.write(str(actual_ratings_dict))
-            netflix_print(w, v)
 
-    #w.write(netflix_rmse(prediction_dict, actual_ratings_dict))
+            predicted_rating = netflix_eval(customer_id)
+
+            prediction_list.append(predicted_rating)
+            actual_ratings_list.append(true_ratings[movie_id][customer_id])
+
+            netflix_print(w, predicted_rating)
+
+    w.write("RMSE: " + str(netflix_rmse(prediction_list, actual_ratings_list)))
+
 
 #when movie id is read in
 #need to check it's data
