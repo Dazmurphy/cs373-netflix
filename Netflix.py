@@ -30,7 +30,7 @@ true_ratings = pickle.load(g)
 #training_data_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
 
 prediction_dict = {}
-#actual_ratings_dict = #tbd
+actual_ratings_dict = {}
 
 customer_id = 0
 movie_id = 0
@@ -74,7 +74,9 @@ def netflix_solve(r, w) :
             customer_id = netflix_read(s)
             v = netflix_eval(customer_id)
             prediction_dict[movie_id] = {customer_id : v}
+            actual_ratings_dict[movie_id] = {customer_id : true_ratings[movie_id][customer_id]}
             w.write(str(prediction_dict))
+            w.write(str(actual_ratings_dict))
             netflix_print(w, v)
 
     #w.write(netflix_rmse(prediction_dict, actual_ratings_dict))
