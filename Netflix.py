@@ -29,14 +29,16 @@ from numpy     import mean, sqrt, square, subtract
 f = open('kh549-customer_average.pickle', 'rb')
 customer_av_unpickled = pickle.load(f)
 
-g = open('kdg445_true_ratings.pickle', 'rb')
-true_ratings = pickle.load(g)
-#training_data_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
+g = open('ad35988-movie_stddev_average.pickle', 'rb')
+movie_std_avg = pickle.load(g)
 
+h = open('kdg445_true_ratings.pickle', 'rb')
+true_ratings = pickle.load(h)
+
+#training_data_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
 
 prediction_list = []
 actual_ratings_list = []
-
 
 customer_id = 0
 movie_id = 0
@@ -45,27 +47,27 @@ movie_id = 0
 #netflix_eval
 #--------
 
-def netflix_eval(i) :
-    return customer_av_unpickled[i]
+def netflix_eval(i, j) :
+
+    std_offset = movie_std_avg[i]
+
+    return (customer_av_unpickled[j] + std_offset)
 
 def netflix_read(s) :
     return int(s)
 
-
 def netflix_print(w, v) :
     w.write(str(v) + "\n")
-
-def netflix_rmse(a, p) :
-    v = sum(map(lambda x, y : (x - y) ** 2, a, p))
-
-    return sqrt(v / len(a))
-
 
 def netflix_solve(r, w) :
     """
     r a reader
     w a writer
     """
+
+    def netflix_rmse(a, p) :
+        return sqrt(mean(square(subtract(a, p))))
+
 
     i = 0
 
@@ -83,29 +85,16 @@ def netflix_solve(r, w) :
         else :
             customer_id = netflix_read(s)
 
-            predicted_rating = netflix_eval(customer_id)
+            predicted_rating = netflix_eval(movie_id, customer_id)
 
             prediction_list.append(predicted_rating)
             actual_ratings_list.append(true_ratings[movie_id][customer_id])
 
             netflix_print(w, predicted_rating)
 
-    w.write("RMSE: " + str(netflix_rmse(prediction_list, actual_ratings_list)))
+    rmse = netflix_rmse(prediction_list, actual_ratings_list) 
 
+    rmse ='{:.2f}'.format(rmse)
 
-#when movie id is read in
-#need to check it's data
-#i.e. year it was made
-#average rating for it
-#when user id is read in
-#need to check it's data
-#user's average rating overall
-#user's average for a decade
-#user's average rating for a year
+    w.write("RMSE: " + str(rmse))
 
-"""
-need to open movie file when movie name is read in
-then go through customer ids and predict value
-put all predicted values into list
-put corresponding
-"""
