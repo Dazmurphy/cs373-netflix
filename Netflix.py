@@ -19,18 +19,18 @@ from numpy     import mean, sqrt, square, subtract
 
 true_ratings_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_true_ratings.pickle'
 
-f = requests.get(true_ratings_url).content
-true_ratings = pickle.loads(f)
+#f = requests.get(true_ratings_url).content
+true_ratings = pickle.loads(requests.get(true_ratings_url).content)
 
 customer_av_unpickled_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle'
 
-g = requests.get(customer_av_unpickled_url).content
-customer_av_unpickled = pickle.loads(g)
+#g = requests.get(customer_av_unpickled_url).content
+customer_av_unpickled = pickle.loads(requests.get(customer_av_unpickled_url).content)
 
 movie_std_avg_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/ad35988-movie_stddev_average.pickle'
 
-h = requests.get(movie_std_avg_url).content
-movie_std_avg = pickle.loads(h)
+#h = requests.get(movie_std_avg_url).content
+movie_std_avg = pickle.loads(requests.get(movie_std_avg_url).content)
 
 
 #--------
