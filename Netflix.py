@@ -44,9 +44,16 @@ else:
 #--------
 
 def netflix_eval(i, j) :
+    """
+    i movie id
+    j customer id
+
+    output predicted rating
+
+    """
 
     assert i > 0 and i <= 17770
-    assert j > 0 and <= 2649429
+    assert j > 0 and j <= 2649429
 
     std_offset = movie_std_avg[i]
 
@@ -66,9 +73,20 @@ def netflix_solve(r, w) :
     """
     r a reader
     w a writer
+
+    output predicted ratings and rmse
+
     """
 
     def netflix_rmse(a, p) :
+        """
+        a is list of predicted ratings
+        p is list of actual ratings
+
+        output rmse
+        
+        """
+
         return sqrt(mean(square(subtract(a, p))))
 
     prediction_list = []

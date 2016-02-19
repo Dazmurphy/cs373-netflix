@@ -16,7 +16,7 @@ from Netflix import netflix_read, netflix_eval, netflix_print, netflix_solve
 # -----------
 
 class TestNetflix (TestCase) :
-	
+
     # ----
     # read
     # ----
@@ -103,4 +103,3 @@ class TestNetflix (TestCase) :
 
 if __name__ == "__main__" :
     main()
-

@@ -7,7 +7,7 @@ OK
 Declan-Duffys-MacBook-Pro:cs373-netflix declanduffy$ coverage report -m
 Name             Stmts   Miss Branch BrPart  Cover   Missing
 ------------------------------------------------------------
-Netflix.py          39      0      4      0   100%   
+Netflix.py          54      6     10      3    86%   21-22, 28-29, 35-36, 20->21, 27->28, 34->35
 testnetflix.py      57      0      2      1    98%   104->-9
 ------------------------------------------------------------
-TOTAL               96      0      6      1    99% 
+TOTAL              111      6     12      4    92% 

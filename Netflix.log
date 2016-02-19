@@ -1,0 +1,114 @@
+commit aecb9b010577db3de5234438d9cc056db6975e12
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Thu Feb 18 19:25:26 2016 -0600
+
+    Assertions added
+
+commit 3d4236c691b944865fb79a52d0138cbf767df9ba
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Thu Feb 18 19:15:02 2016 -0600
+
+    Change in IO -- fixes
+
+commit 3083eb32590ba1ecb41c0c0bf54ad8e7b6e660d5
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Thu Feb 18 18:55:32 2016 -0600
+
+    Change in IO -- added .html
+
+commit 9517e48434e14db0784f2fc99b991292e06ed5e2
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Thu Feb 18 18:45:04 2016 -0600
+
+    Change in IO
+
+commit a183e7df96baf7ed07165f19dbc0f4dc28df68ae
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Thu Feb 18 17:44:51 2016 -0600
+
+    I/O changed to online locations -- not local
+
+commit 182800b52c7bc988ecdc51a96aa3262cbbd04aca
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Thu Feb 18 17:30:31 2016 -0600
+
+    Unit tests and acceptance tests completed
+
+commit ef1e4ccde3c79c2cb9226e96580b6c57267c7e22
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Wed Feb 17 23:08:14 2016 -0600
+
+    RMSE of 0.96 -- run time too slow
+
+commit 41141ee096f789d001f0ddbe76604469101ca7b5
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 19:26:06 2016 -0600
+
+    added travis files
+
+commit d3f5ebf9a8e5663b078b20938344e006cadf8529
+Merge: 0168aa1 bc7f6ad
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 19:24:59 2016 -0600
+
+    added travis files
+
+commit 0168aa1145ca8563f888d88757acd8d1c166f54f
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 19:21:56 2016 -0600
+
+    added travis files
+
+commit bc7f6ad7ab87aa36b16e9a4f1d62d348dd18e9db
+Author: Declan Duffy <declan.duffy94@hotmail.com>
+Date:   Wed Feb 17 18:00:31 2016 -0600
+
+    Rmse working - changed from dictionaries to lists
+
+commit 888550755cbe83f46b8ae9734491bde5a7bf31ae
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 16:45:29 2016 -0600
+
+    created dictionary of all predictions
+
+commit a777b203b7efe063d985ba20d27192a85117925a
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 16:38:11 2016 -0600
+
+    fixed local file issue
+
+commit d639bd9e820cbcbd5c9288570a6847aca8bc7c55
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 16:24:17 2016 -0600
+
+    working with local pickle files
+
+commit 6ca82c3ed49b4fab7e7f73f3e7515311276c1161
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Wed Feb 17 15:34:57 2016 -0600
+
+    added pickle files
+
+commit 7cf92019cfdae68f58622fec96cb1d5a51b5a717
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Tue Feb 16 16:08:25 2016 -0600
+
+    added pickle file reading functionality
+
+commit e828e0f1b247d31d75fa5da211759ad6f46bfc10
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Tue Feb 16 14:38:33 2016 -0600
+
+    created netflix_solve
+
+commit e968ce6b49f72f4cd45cdd5cb8a6356df0e07ff3
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Tue Feb 16 14:20:36 2016 -0600
+
+    created initial files
+
+commit 3f08553439fb7a75e4628b27fa3fc19947291dbb
+Author: Dazmurphy <daz.murphy.94@gmail.com>
+Date:   Tue Feb 16 13:13:17 2016 -0600
+
+    Initial commit
