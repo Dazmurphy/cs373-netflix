@@ -17,20 +17,26 @@ from math      import sqrt
 from numpy     import mean, sqrt, square, subtract
 
 
-true_ratings_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_true_ratings.pickle'
+if os.path.isfile('/u/downing/public_html/netflix-caches/kdg445_true_ratings.pickle') :
+    f = open('/u/downing/public_html/netflix-caches/kdg445_true_ratings.pickle','rb')
+    true_ratings = pickle.load(f)
+else:
+    bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/kdg445_true_ratings.pickle').content
+    true_ratings = pickle.loads(bytes)
 
-#f = requests.get(true_ratings_url).content
-true_ratings = pickle.loads(requests.get(true_ratings_url).content)
+if os.path.isfile('/u/downing/public_html/netflix-caches/kh549-customer_average.pickle') :
+    f = open('/u/downing/public_html/netflix-caches/kh549-customer_average.pickle','rb')
+    customer_av_unpickled = pickle.load(f)
+else:
+    bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle').content
+    customer_av_unpickled = pickle.loads(bytes)
 
-customer_av_unpickled_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle'
-
-#g = requests.get(customer_av_unpickled_url).content
-customer_av_unpickled = pickle.loads(requests.get(customer_av_unpickled_url).content)
-
-movie_std_avg_url = 'http://www.cs.utexas.edu/users/downing/netflix-caches/ad35988-movie_stddev_average.pickle'
-
-#h = requests.get(movie_std_avg_url).content
-movie_std_avg = pickle.loads(requests.get(movie_std_avg_url).content)
+if os.path.isfile('/u/downing/public_html/netflix-caches/ad35988-movie_stddev_average.pickle') :
+    f = open('/u/downing/public_html/netflix-caches/ad35988-movie_stddev_average.pickle','rb')
+    movie_std_avg = pickle.load(f)
+else:
+    bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/ad35988-movie_stddev_average.pickle').content
+    movie_std_avg = pickle.loads(bytes)
 
 
 #--------
