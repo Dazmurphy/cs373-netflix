@@ -59,6 +59,12 @@ def netflix_eval(i, j) :
 
     rating = (customer_av_unpickled[j] + std_offset)
 
+    if (rating > 5) :
+        rating = 5
+
+    if (rating < 1) :
+        rating = 1
+
     assert rating > 0 and rating <= 5
 
     return rating 
