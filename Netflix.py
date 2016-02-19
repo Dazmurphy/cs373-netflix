@@ -45,9 +45,16 @@ else:
 
 def netflix_eval(i, j) :
 
+    assert i > 0 and i <= 17770
+    assert j > 0 and <= 2649429
+
     std_offset = movie_std_avg[i]
 
-    return (customer_av_unpickled[j] + std_offset)
+    rating = (customer_av_unpickled[j] + std_offset)
+
+    assert rating > 0 and rating <= 5
+
+    return rating 
 
 def netflix_read(s) :
     return int(s)
@@ -87,6 +94,9 @@ def netflix_solve(r, w) :
             customer_id = netflix_read(s)
 
             predicted_rating = netflix_eval(movie_id, customer_id)
+
+            assert predicted_rating >= 1
+            assert predicted_rating <= 5
 
             prediction_list.append(predicted_rating)
             actual_ratings_list.append(true_ratings[movie_id][customer_id])
